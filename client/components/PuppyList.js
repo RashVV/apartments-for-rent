@@ -19,19 +19,9 @@ class AllPuppies extends Component {
     if (this.state.searchBreed) products = products.filter(product => Object.values(product).join('').toLowerCase().includes(this.state.searchBreed.toLowerCase()) )
   return (
     <div className="blog-posts">
-      <div className="page-header header-filter header-small" style={{ backgroundImage: `url("../resources/assets/img/jeremy-wong-342291.jpg")` }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 col-md-offset-2 text-center">
-              <h2 className="title">Большой выбор жилья от хозяев</h2>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="main">
           <div className="section">
-            <div className="nav nav-bar">
-              <div>
+            <div className="nav nav-bar search-block">
                 <h2 className="navbar-header" style = {{ textAlign: 'center' }}>Доступно на данный момент</h2>
                 <form className="navbar-form navbar-right" role="search" onSubmit={e => e.preventDefault()}>
                   <div className="form-group form-white">
@@ -39,19 +29,24 @@ class AllPuppies extends Component {
                   </div>
                   <button type="submit" className="btn btn-white btn-raised btn-fab btn-fab-mini" ><i className="material-icons">search</i></button>
                 </form>
-              </div>
             </div>
             <div className="row">
               { products.map(puppy => {
                   return (
                       <div className="section product" key={puppy.id}>
-                            <img src={puppy.photos[0]} alt="" className="card-img"/>
+
+                          <div className="product-img">
+                              <img src={puppy.photos[0]} alt="{puppy.name}" className="card-img"/>
+                              <div className="bottom-right">
+                                  <i className="material-icons">photo_camera</i>{puppy.photos.length}
+                              </div>
+                          </div>
                             <div className="card-content">
                               <Link to={"/products/breed/"+ puppy.breed}>
                               <h6 className="category text-info">{puppy.breed}</h6></Link>
 
                               <h3 className="card-title">{puppy.name}</h3>
-                              <h2>{puppy.price} грн</h2>
+                              <h2>{puppy.price}</h2>
 
                               <p className="card-description">
                                 {puppy.description.length < 50 ? puppy.description : puppy.description.slice(0,50) + '...'}
