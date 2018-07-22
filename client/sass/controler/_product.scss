@@ -1,0 +1,47 @@
+
+
+
+.product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0 15px 0;
+  margin-top: 15px;
+  background: #fff;
+  .card-img {
+    max-width: 394px;
+    max-height: 260px;
+    padding-top: 15px;
+  }
+
+}
+
+.main {
+  background: #e5e5e5;
+}
+
+.search-block,
+.product-block {
+  background: #fff;
+}
+
+.product-img {
+  position: relative;
+  text-align: center;
+  color: white;
+
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    i {
+      padding-right: 5px;
+    }
+  }
+}
+
+
+

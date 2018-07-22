@@ -73,19 +73,19 @@ const Navbar = props =>
           </li>
 
           <Link to={'/cart'}>
-            <button className="btn btn-white pull-right"><i className="material-icons">shopping_cart</i> {(props.cart.length && props.cart.reduce((a, b) => {
+            <button className="btn btn-white pull-right"><i className="material-icons">star_border</i> {(props.cart.length && props.cart.reduce((a, b) => {
                 if(typeof b === 'object'){
                   return a + b.quantity
                 }
                 return a + b}, 0)
               )}
-              &nbsp;Items</button>
+              &nbsp;Избранные</button>
           </Link>
 
         </ul>
       </div>
     </div>
-  </nav>;
+</nav>;
 
 
 /**

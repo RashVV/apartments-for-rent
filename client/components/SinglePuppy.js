@@ -44,7 +44,7 @@ class SinglePuppy extends Component {
 
           <div className="section section-gray">
               <div className="container">
-                  <div className="main main-raised main-product">
+                  <div className="main main-raised main-product product-block">
                       <div className="row">
                           <div className="col-md-6 col-sm-6">
 
