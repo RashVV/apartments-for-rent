@@ -7,18 +7,16 @@
   },
   "main": "index.js",
   "scripts": {
-    "build-client": "webpack",
+    "client": "webpack-dev-server --content-base src --hot --inline",
     "watch": "webpack -w",
     "deploy": "git checkout -b deploy && webpack -p && git add -f public/bundle.js public/bundle.js.map && git commit --allow-empty -m 'Deploying' && git push --force heroku deploy:master && git checkout master && git branch -D deploy",
     "start": "nodemon server",
-    "start-dev": "npm run build-client-watch & npm run start-server",
+    "start-dev": "npm run watch & npm run start-server",
     "start-server": "NODE_ENV='development' nodemon server -e html,js,scss --ignore public",
     "test": "NODE_ENV='test' DATABASE_URL='postgres://localhost:5432/JEFS-test' mocha ./**/*.spec.js --compilers js:babel-register",
     "test-codeship": "NODE_ENV='production' DATABASE_URL='postgres://localhost:5436/test' mocha ./**/*.spec.js --compilers js:babel-register",
     "test-travis": "NODE_ENV='production' DATABASE_URL='postgres://localhost:5432/test' mocha ./**/*.spec.js --compilers js:babel-register",
-    "seed": "node server/db/seed",
-    "seed-codeship": "DATABASE_URL='postgres://localhost:5436/test' node server/db/seed",
-    "seed-travis": "DATABASE_URL='postgres://localhost:5432/test' node server/db/seed"
+    "seed": "node server/db/seed"
   },
   "author": "",
   "license": "ISC",
@@ -41,6 +39,7 @@
     "passport-twitter": "1.0.4",
     "pg": "6.1.2",
     "pg-hstore": "2.3.2",
+    "postcss-loader": "^2.1.6",
     "prop-types": "15.5.8",
     "pug": "2.0.0-rc.4",
     "react": "15.4.2",
@@ -55,7 +54,8 @@
     "redux-thunk": "2.2.0",
     "sequelize": "4.3.1",
     "socket.io": "2.0.3",
-    "stripe": "5.0.0"
+    "stripe": "5.0.0",
+    "webpack-hot-middleware": "^2.22.3"
   },
   "devDependencies": {
     "axios-mock-adapter": "1.9.0",

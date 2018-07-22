@@ -17,19 +17,29 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+          use: [{
+              loader: "style-loader"
+          }, {
+              loader: "css-loader"
+          }, {
+              loader: "sass-loader",
+          }],
       },
       {
-        test: /\.svg$|\.ttf?|\.woff$|\.woff2|\.eof|\.eot/,
+        test: /\.svg$|\.ttf?|\.woff$|\.woff2|\.eof|\.eot|\.cur/,
         loader: 'file-loader'
       }
     ]
   },
     devServer: {
-        port: 8080
-    }
+     hot: true,
+
+        overlay: {
+            errors: true,
+            warnings: true,
+        },
+
+        port: 8080,
+
+    },
 }
