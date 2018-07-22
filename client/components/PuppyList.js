@@ -28,9 +28,7 @@ class AllPuppies extends Component {
           </div>
         </div>
       </div>
-      <div className="main main-raised">
-        <div className="container">
-
+      <div className="main">
           <div className="section">
             <div className="nav nav-bar">
               <div>
@@ -46,19 +44,20 @@ class AllPuppies extends Component {
             <div className="row">
               { products.map(puppy => {
                   return (
-                      <div className="product" key={puppy.id}>
+                      <div className="container product" key={puppy.id}>
                             <img src={puppy.photos[0]} alt="" className="card-img"/>
                             <div className="card-content">
                               <Link to={"/products/breed/"+ puppy.breed}>
                               <h6 className="category text-info">{puppy.breed}</h6></Link>
 
                               <h3 className="card-title">{puppy.name}</h3>
+                              <h2>{puppy.price} грн</h2>
 
                               <p className="card-description">
                                 {puppy.description.length < 50 ? puppy.description : puppy.description.slice(0,50) + '...'}
                               </p>
                               <Link className="btn btn-danger btn-round" to={"/products/" + puppy.id}>
-                                <i className="material-icons">format_align_left</i> Cuddle with meee ❤
+                                <i className="material-icons">format_align_left</i> Подробнее
                               </Link>
                           </div>
                   </div>
@@ -67,7 +66,7 @@ class AllPuppies extends Component {
               }
             </div>
           </div>
-        </div>
+
       </div>
     </div>
   )
