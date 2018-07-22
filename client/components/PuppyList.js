@@ -44,7 +44,7 @@ class AllPuppies extends Component {
             <div className="row">
               { products.map(puppy => {
                   return (
-                      <div className="container product" key={puppy.id}>
+                      <div className="section product" key={puppy.id}>
                             <img src={puppy.photos[0]} alt="" className="card-img"/>
                             <div className="card-content">
                               <Link to={"/products/breed/"+ puppy.breed}>
