@@ -1,6 +1,8 @@
 import React from "react";
 import { WithContext as ReactTags } from "react-tag-input";
 
+import AddProductForm from '../AddProductForm'
+
 const isEmptyHelper = (labels, bool) => labels + (!bool ? " is-empty" : "")
 const emptyForm = {
     id: '',
@@ -305,6 +307,7 @@ export default class ProductTab extends React.Component {
           </div>
         </div>
         {/*</div>*/}
+          <AddProductForm />
       </div>
     );
   }

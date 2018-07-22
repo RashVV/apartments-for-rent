@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {getCart, addToCart, removeFromCart, deleteFromCart} from '../store'
 
-const ShoppingCart = (props) => {
+const Blog = (props) => {
     const products = props.products
 
     return (
